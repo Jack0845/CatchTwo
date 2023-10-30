@@ -154,7 +154,7 @@ async function Login(token, Client, guildId) {
             const spamChannels = guild.channels.cache.filter(
               (channel) =>
                 channel.type === "GUILD_TEXT" &&
-                channel.name.includes("spam") &&
+                channel.name.includes("general") &&
                 channel
                   .permissionsFor(guild.members.me)
                   .has([
@@ -165,7 +165,7 @@ async function Login(token, Client, guildId) {
 
             if (spamChannels.size === 0) {
               throw new Error(
-                `Couldn't find a channel called 'spam' in the guild specified for ${client.user.username}. Please create one.`
+                `Couldn't find a channel called 'general' in the guild specified for ${client.user.username}. Please create one.`
               )
             }
 
@@ -177,7 +177,7 @@ async function Login(token, Client, guildId) {
             spamMessageCount++;
           }
 
-          if (randomInteger(0, 2500) === 400 && config.sleeping) {
+          if (randomInteger(0, 1700) === 400 && config.sleeping) {
             let sleepTimeInMilliseconds = randomInteger(600000, 4000000);
             isOnBreak = true;
 
@@ -249,7 +249,7 @@ async function Login(token, Client, guildId) {
       const spamChannels = guild.channels.cache.filter(
         (channel) =>
           channel.type === "GUILD_TEXT" &&
-          channel.name.includes("spam") &&
+          channel.name.includes("general") &&
           channel
             .permissionsFor(guild.members.me)
             .has([
@@ -260,7 +260,7 @@ async function Login(token, Client, guildId) {
 
       if (spamChannels.size === 0) {
         throw new Error(
-          `Couldn't find a channel called 'spam' in the guild specified for ${client.user.username}. Please create one.`
+          `Couldn't find a channel called 'general' in the guild specified for ${client.user.username}. Please create one.`
         );
       }
 
